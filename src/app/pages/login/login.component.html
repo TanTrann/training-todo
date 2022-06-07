@@ -1,0 +1,42 @@
+
+<div class="login-page">
+  <div class="container">
+    <form class="login-form" (ngSubmit)="onSubmit()" #heroForm="ngForm" >
+      <p class="title1">Sign In</p>
+      <p class="title2">Please input your Login details to gain access.</p>
+      <mat-form-field appearance="outline" [formGroup]="userEmails">
+        <mat-icon matPrefix svgIcon="mail"></mat-icon>
+        <input
+          type="text"
+          class="input-login alert alert-danger"
+          id="email"
+          placeholder="Enter your email address"
+          name="email"
+          matInput
+          required         
+          formControlName="primaryEmail" 
+        />
+      </mat-form-field>
+      <div [hidden]="userEmails.valid || userEmails.pristine" class="alert login-alert alert-danger">
+        Must be a valid email address.
+      </div>
+      <mat-form-field appearance="outline" [formGroup]="userPassword">
+        <mat-icon matPrefix svgIcon="lock"></mat-icon>
+        <input
+          type="password"
+          class="input-login"
+          id="password"
+          name="password"
+          placeholder="Enter your password"
+          matInput
+          required
+          formControlName="userPassword" 
+        />
+      </mat-form-field>
+      <div [hidden]="userPassword.valid || userPassword.pristine" class="alert login-alert alert-danger">
+        Password must be at least 6 characters.
+      </div>
+      <button mat-flat-button >Login</button>
+    </form>
+  </div>
+</div>
